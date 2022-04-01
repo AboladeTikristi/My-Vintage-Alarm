@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.css">
+</head>
+<body class="bg-dark"><br>
+  
+  <table class="table text-light">
+    <tr align="center" ><td colspan="3"><span class="text-center"><h3>Vintage Alarm</h3></span>
+    </td></tr>
+        <tr align="center" colspan="3" >
+    <td><input type="number" id="h" placeholder="00"></td>
+    <td>:</td>
+    <td><input type="number" id="mm"placeholder="00"></td>
+
+   </tr> 
+   <tr align="center">
+    <td>Date  <input id="day" type="number"placeholder="day"></td>
+    
+    <td><input id="mons" type="number"placeholder="mon"></td>
+    
+    <td><input id="year"type="number" placeholder="year"></td>
+   </tr>
+    <tr align="center">
+     
+        <td colspan="3"><button onclick="setAlarm()"class="btn btn-success">Set Alarm</button></td>
+    </tr>
+    <tr align="center">
+     
+        <td colspan="3"><button onclick="stopAlarm()"class="btn btn-success">Stop Alarm</button></td>
+    </tr>
+
+</table>
+
+  <script>
+
+var timein;
+          var w=new Audio("alarmsound.mp3"); 
+        //  console.log(s.getMonth())
+        //  console.log(s.getFullYear())
+        //  console.log(s.getDate())
+        function setAlarm(){
+            var s= new Date();
+      
+       
+        
+            var hr=h.value;
+            var mins=mm.value;
+            var d=day.value;
+            var m=mons.value;
+            var y=year.value;
+            var num= Math.random()
+            var fn=Math.floor(num*15);
+            var num2=Math.random();
+            var fd=Math.floor(num2*10);
+            //  if (show=true) {
+            //  w.pause()
+            //   return;  
+            // } 
+       
+            if (s.getHours()==hr && s.getMinutes()==mins && s.getDate()==d && s.getMonth()==m-1 && s.getFullYear()==y) {
+          
+                w.volume=0.2;
+                w.play();
+                w.loop=true;
+            
+                }
+             
+                //    var timein=setTimeout(setAlarm,1000);
+        }
+        function stopAlarm(){
+            setAlarm();
+            w.pause()
+
+            alert("hey")
+            //    clearTimeout(timein)
+            // var num= Math.random()
+            // var fn=Math.floor(num*15);
+            // var num2=Math.random();
+            // var fd=Math.floor(num2*10);
+            // var show=prompt(fn+"+"+fd);
+            // var ans=eval(fn+fd);
+                
+            //  if (show==ans && w.played==true) {
+            
+            //     w.paused=true;
+            
+            
+         // }
+       
+            //   else  if (show!=fn+fd||show==null) {
+            //         w.volume=1.0;
+            //         alert("wrong")
+            //     }
+            // else{
+            //      w.loop()
+            // } 
+        }
+  </script>
+</body>
+</html>
